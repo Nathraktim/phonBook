@@ -4,7 +4,7 @@ const protect = require('../middleware/auth-middleware');
 const { img }= require('../controller/img-controller');
 
 const imgRouter = express.Router();
-imgRouter.get('/:id', protect, img);
+imgRouter.get('/:id', img);
 
 module.exports = { imgRouter }
 

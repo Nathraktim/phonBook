@@ -46,8 +46,7 @@ const registerUser = async (req, res) => {
     const newUser = {
         id: nextUserId,
         username,
-        password: encryptedPassword,
-        phoneBook: {}
+        password: encryptedPassword
     };
     users.push(newUser);
     writeUsersToFile(users);
@@ -71,7 +70,8 @@ const loginUser = async (req, res) => {
     // Validation
     const { error } = userSchema.validate({ username, password });
     if (error) {
-        return res.status(400).json({ message: error.details[0].message });
+        res.status(401);
+        return res.json({ message: error.details[0].message });
     }
     const users = readUsersFromFile();
     const user = users.find(user => user.username === username);

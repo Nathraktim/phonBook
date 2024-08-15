@@ -2,22 +2,20 @@
 
 ## Description
 
-Build a Phone Book application using Node.js and Express.js. This application will allow users to manage their contacts by adding, viewing, editing, and deleting contact information. The application will include secure authentication features such as login and signup, with passwords stored in an encrypted format. Data for users and contacts will be stored in separate files, and you may choose to use either Excel or JSON for storage. The application will also allow users to upload a photo for each contact using `multer` for file handling.
-
-## Requirements
+A Phone Book application using Node.js and Express.js. This application will allow users to manage their contacts by adding, viewing, editing, and deleting contact information. The application will include secure authentication features such as login and signup, with passwords stored in an encrypted format. Data for users and contacts will be stored in separate files, and you may choose to use either Excel or JSON for storage. The application will also allow users to upload a photo for each contact using `multer` for file handling.
 
 ### Backend
 
-- Use separate files to store user and contact information.
-  - User data should be stored in a `users.json` or `users.xlsx` file.
-  - Contact data should be stored in a `contacts.json` or `contacts.xlsx` file.
-- Create an Express.js server to handle HTTP requests and serve the API.
-- Implement the following API endpoints:
-  - **POST** `/api/auth/signup` - Register a new user with encrypted password storage.         Done
-  - **POST** `/api/auth/login` - Authenticate a user and return a JWT token.                   Done
-  - **GET** `/api/contacts` - Retrieve all contacts for the authenticated user.
-  - **GET** `/api/contacts/:id` - Retrieve a specific contact by ID for the authenticated user.
-  - **POST** `/api/contacts` - Create a new contact for the authenticated user. Each contact should include:
+- An Express.js server to handle HTTP requests and serve the API.
+- Separate files to store user and contact information.
+  - User data is stored in `users.json`file.
+  - Contact data is stored in `contacts.json` file.
+- API endpoints:
+  - **POST** `/api/auth/signup` - Registering new user with username and password. password is hashed using bcrypt and then only the hash is stored and also creating a jwt web token with 1 year expiry and send it as in response along with id and username.
+  - **POST** `/api/auth/login` - Authenticating user and return a JWT token same way.
+  - **GET** `/api/contacts` - Retrieveing all contacts for the authenticated user.
+  - **GET** `/api/contacts/:id` - Retrieveing a specific contact by ID for the authenticated user.
+  - **POST** `/api/contacts` - Creates a new contact for the authenticated user. Each contact should include:
     - Name
     - Phone number
     - Email address
@@ -68,9 +66,3 @@ Build a Phone Book application using Node.js and Express.js. This application wi
 - Implement viewing, editing, and deleting functionality for individual contacts, ensuring that each contact includes a name, phone number, email, and photo.
 - Write clean, modular code with appropriate error handling and validation.
   Submission of Frontend Internship Task
-
-## Note:
-
-- The project should be uploaded to a GitHub repository.
-- Screen record all the functionality of the app and upload the video in the drive and share the video link with us in the form
-- Share both the link in this Google Form: https://forms.gle/Y1z3kNH3qnkwtzxn9

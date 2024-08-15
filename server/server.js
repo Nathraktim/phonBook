@@ -5,6 +5,14 @@ const userRouter = require('./routes/user-router.js');
 const contactRouter = require('./routes/contact-router.js');
 const { imgRouter } = require('./routes/img-router.js');
 app.use(express.json());
+const cors = require('cors');
+
+const corsOptions = {
+    origin: '*',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+};
+
+app.use(cors(corsOptions));
 
 app.get('/', (req, res) => {
     res.send("Server is Up and running");
