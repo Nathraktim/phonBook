@@ -35,34 +35,14 @@ A Phone Book application using Node.js and Express.js. This application will all
 
 ### Security
 
-- Implement password encryption using `bcrypt` or a similar library.
-- Use JWT for session management and protecting routes that require authentication.
+- Implemented password encryption using `bcrypt`.
+- Used JWT for session management and protecting routes that require authentication.
 
 ### Validation
 
-- Use Joi for validating incoming data to ensure it meets the expected formats and constraints.
-  - **User Registration**:
-    - Validate that the username is a string and is required.
-    - Validate that the password is a string, has a minimum length, and is required.
-    - Validate that the email is a valid email format and is required.
-  - **User Login**:
-    - Validate that the username is a string and is required.
-    - Validate that the password is a string and is required.
-  - **Contact Management**:
-    - Validate that the name is a string and is required.
-    - Validate that the phone number is a string, has a valid phone number format, and is required.
-    - Validate that the email is a valid email format and is required.
-    - Validate that the photo is an optional file upload, if included.
+- Using Joi for validating incoming data to ensure it meets the expected formats and constraints.
 
 ### Frontend UI (Optional)
 
-- You are free to use any frontend technology or framework of your choice to build the user interface for the application. This may include React or even plain HTML/CSS/JavaScript.
+- I have built the frontend part in react.
 - The frontend should interact with the backend API to perform CRUD operations on contacts and handle user authentication.
-
-## Guidelines
-
-- Use Node.js and Express.js to build the backend API.
-- Ensure secure password storage and implement JWT-based authentication.
-- Implement viewing, editing, and deleting functionality for individual contacts, ensuring that each contact includes a name, phone number, email, and photo.
-- Write clean, modular code with appropriate error handling and validation.
-  Submission of Frontend Internship Task
