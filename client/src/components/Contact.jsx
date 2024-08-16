@@ -8,7 +8,7 @@ const Contact = ({ contact, emailContact, callContact, deleteContact, openEditFo
           {contact.photoLink ? (
             <div className="aspect-1 h-16 mr-3 overflow-hidden rounded-full">
               <img
-                src={`http://localhost:3000/api/images/${contact.photoLink}`}
+                src={`https://phonbook-i39g.onrender.com/api/images/${contact.photoLink}`}
                 alt={contact.name}
                 onError={(e) => {
                   e.target.src = './react.svg';

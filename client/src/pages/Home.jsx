@@ -17,7 +17,7 @@ function Home() {
   const openEditForm = async (contactId) => {
     try {
         const token = localStorage.getItem('token');
-        const contactResponse = await fetch(`http://localhost:3000/api/contact/${contactId}`, {
+        const contactResponse = await fetch(`https://phonbook-i39g.onrender.com/api/contact/${contactId}`, {
             method: 'GET',
             headers: {
                 Authorization: `${token}`,
@@ -28,7 +28,7 @@ function Home() {
             throw new Error('Failed to fetch contact');
         }
         const data = await contactResponse.json();
-        const imageUrl = data.photoLink ? `http://localhost:3000/api/images/${data.photoLink}` : null;
+        const imageUrl = data.photoLink ? `https://phonbook-i39g.onrender.com/api/images/${data.photoLink}` : null;
         setSelectedContactId(contactId);
         setNewContact({
             name: data.name,
@@ -72,7 +72,7 @@ const closeEditForm = async (contactId) => {
           return;
         }
 
-        const response = await fetch('http://localhost:3000/api/contact', {
+        const response = await fetch('https://phonbook-i39g.onrender.com/api/contact', {
           method: 'GET',
           headers: {
             Authorization: `${token}`,
@@ -157,7 +157,7 @@ const closeEditForm = async (contactId) => {
       formData.append('phone', newContact.phone);
       formData.append('photo', newContact.photo);
 
-      const response = await fetch('http://localhost:3000/api/contact', {
+      const response = await fetch('https://phonbook-i39g.onrender.com/api/contact', {
         method: 'POST',
         headers: {
           Authorization: `${token}`,
@@ -241,7 +241,7 @@ const closeEditForm = async (contactId) => {
             formData.append('photo', newContact.photo);
         }
 
-        const response = await fetch(`http://localhost:3000/api/contact/${selectedContactId}`, {
+        const response = await fetch(`https://phonbook-i39g.onrender.com/api/contact/${selectedContactId}`, {
           method: 'PUT',
           headers: {
               Authorization: `${token}`,
@@ -286,7 +286,7 @@ const closeEditForm = async (contactId) => {
         return;
       }
 
-      const response = await fetch(`http://localhost:3000/api/contact/${id}`, {
+      const response = await fetch(`https://phonbook-i39g.onrender.com/api/contact/${id}`, {
         method: 'DELETE',
         headers: {
           Authorization: `${token}`,
