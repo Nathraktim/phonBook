@@ -1,9 +1,9 @@
 const express =  require('express');
 const app = express();
 require('dotenv').config();
-const userRouter = require('./routes/user-router.js');
-const contactRouter = require('./routes/contact-router.js');
-const { imgRouter } = require('./routes/img-router.js');
+const userRouter = require('./api/routes/user-router.js');
+const contactRouter = require('./api/routes/contact-router.js');
+const { imgRouter } = require('./api/routes/img-router.js');
 app.use(express.json());
 const cors = require('cors');
 
@@ -28,3 +28,5 @@ app.use('/api/images', imgRouter);
 app.listen(process.env.PORT || 3001, () => {
     console.log(`Server is up and running on port ${process.env.PORT || 3001}`);
   });
+
+module.exports = app;
