@@ -8,13 +8,14 @@ function Signup() {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState(null);
+  const signupURL = import.meta.env.VITE_REGISTER_PATH;
   const navigate = useNavigate()
   isLoggedIn('/');
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const response = await axios.post('https://phonbook-i39g.onrender.com/api/auth/signup', {
+      const response = await axios.post(signupURL, {
         username,
         password
       })

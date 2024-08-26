@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Contact from '../components/Contact';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// require('dotenv').config();
 
 
 function Home() {
@@ -328,7 +327,7 @@ const closeEditForm = async (contactId) => {
         </div>
         <div className='flex gap-3'>
         <button className='overflow-hidden w-[39.99px] rounded-full h-[39.99px] ease-in-out delay-150 hover:rotate-45 duration-300' title="Create contact" aria-label="Create contact" onClick={() => setIsCreatingContact(!isCreatingContact)} >
-        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="0 0 200 200" fill="none" >
         <rect width="200" height="200" fill="#D9D9D9"/>
         <rect x="98" y="40" width="11" height="121" rx="5.5" fill="#2E2E2E"/>
         <rect x="98" y="40" width="11" height="121" rx="5.5" fill="#2E2E2E"/>
@@ -373,7 +372,7 @@ const closeEditForm = async (contactId) => {
           ) : (
             <div className='relative w-fit h-fit'>
               <p className='absolute top-1/2 left-1/2 -translate-y-[50%] -translate-x-[50%] md:text-[10px]'>Drag and drop an image here or click to select a file</p>
-              <svg xmlns="http://www.w3.org/2000/svg" width="283" height="283" viewBox="0 0 283 283">
+              <svg  width="283" height="283" viewBox="0 0 283 283">
   <g id="Ellipse_1" data-name="Ellipse 1" fill="none" stroke="##27272a" strokeWidth="2">
     <circle cx="141.5" cy="141.5" r="141.5" stroke="none"/>
     <circle cx="141.5" cy="141.5" r="140.5" fill="none"/>
@@ -470,7 +469,7 @@ const closeEditForm = async (contactId) => {
   ) : (
     <div className='relative w-fit h-fit'>
       <p className='absolute top-1/2 left-1/2 -translate-y-[50%] -translate-x-[50%] md:text-[10px]'>Drag and drop an image here or click to select a file</p>
-      <svg xmlns="http://www.w3.org/2000/svg" width="283" height="283" viewBox="0 0 283 283">
+      <svg  width="283" height="283" viewBox="0 0 283 283">
         <g id="Ellipse_1" data-name="Ellipse 1" fill="none" stroke="##27272a" strokeWidth="2">
           <circle cx="141.5" cy="141.5" r="141.5" stroke="none"/>
           <circle cx="141.5" cy="141.5" r="140.5" fill="none"/>

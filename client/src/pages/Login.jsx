@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
 //hooks
 import isLoggedIn from '../hooks/isLoggedIn';
-// require('dotenv').config();
 
 function Login() {
   const [username, setUsername] = useState('');
