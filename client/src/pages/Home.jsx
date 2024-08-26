@@ -15,8 +15,8 @@ function Home() {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
   const fileInputRef = useRef(null);
-  const contactUrl = process.env.REACT_APP_CONTACTS_PATH || process.env.LOCAL_CONTACTS_PATH;
-  const contactImageUrl = process.env.REACT_APP_CONTACTS_IMAGE_PATH || process.env.REACT_APP_LOCAL_CONTACTS_IMAGE_PATH;
+  const contactUrl = import.meta.env.VITE_CONTACTS_PATH || import.meta.env.VITE_LOCAL_CONTACTS_PATH;;
+  const contactImageUrl = import.meta.env.VITE_CONTACT_IMAGE_PATH || import.meta.env.VITE_LOCAL_CONTACT_IMAGE_PATH;
 
   const openEditForm = async (contactId) => {
     try {

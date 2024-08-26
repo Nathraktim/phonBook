@@ -11,7 +11,7 @@ function Login() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
-  const loginURL = process.env.REACT_APP_LOGIN_PATH || process.env.REACT_APP_LOCAL_LOGIN_PATH;
+  const loginURL = import.meta.env.VITE_LOGIN_PATH;
   isLoggedIn('/');
 
   const login = async (username, password) => {
