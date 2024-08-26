@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
 //hooks
 import isLoggedIn from '../hooks/isLoggedIn';
+require('dotenv').config();
 
 function Login() {
   const [username, setUsername] = useState('');
@@ -10,6 +11,7 @@ function Login() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
+  const loginURL = process.env.LOGIN_PATH || process.env.LOCAL_LOGIN_PATH;
   isLoggedIn('/');
 
   const login = async (username, password) => {
@@ -17,7 +19,7 @@ function Login() {
     setError(null);
     let extractedMessage = '';
     try {
-      const response = await fetch('https://phonbook-i39g.onrender.com/api/auth/login', {
+      const response = await fetch(loginURL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
