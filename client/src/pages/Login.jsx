@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
 //hooks
 import isLoggedIn from '../hooks/isLoggedIn';
-require('dotenv').config();
+// require('dotenv').config();
 
 function Login() {
   const [username, setUsername] = useState('');
@@ -11,7 +11,7 @@ function Login() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
-  const loginURL = process.env.LOGIN_PATH || process.env.LOCAL_LOGIN_PATH;
+  const loginURL = process.env.REACT_APP_LOGIN_PATH || process.env.REACT_APP_LOCAL_LOGIN_PATH;
   isLoggedIn('/');
 
   const login = async (username, password) => {

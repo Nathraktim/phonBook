@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Contact from '../components/Contact';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-require('dotenv').config();
+// require('dotenv').config();
 
 
 function Home() {
@@ -15,14 +15,16 @@ function Home() {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
   const fileInputRef = useRef(null);
+  const contactUrl = process.env.REACT_APP_CONTACTS_PATH || process.env.LOCAL_CONTACTS_PATH;
+  const contactImageUrl = process.env.REACT_APP_CONTACTS_IMAGE_PATH || process.env.REACT_APP_LOCAL_CONTACTS_IMAGE_PATH;
 
   const openEditForm = async (contactId) => {
     try {
         const token = localStorage.getItem('token');
-        const contactResponse = await fetch(`https://phonbook-i39g.onrender.com/api/contact/${contactId}`, {
+        const contactResponse = await fetch(`${contactUrl}/${contactId}`, {
             method: 'GET',
             headers: {
-                Authorization: `${token}`,
+          Authorization: `${token}`,
             },
         });
 
@@ -30,7 +32,7 @@ function Home() {
             throw new Error('Failed to fetch contact');
         }
         const data = await contactResponse.json();
-        const imageUrl = data.photoLink ? `https://phonbook-i39g.onrender.com/api/images/${data.photoLink}` : null;
+        const imageUrl = data.photoLink ? `${contactImageUrl}/${data.photoLink}` : null;
         setSelectedContactId(contactId);
         setNewContact({
             name: data.name,
@@ -74,7 +76,7 @@ const closeEditForm = async (contactId) => {
           return;
         }
 
-        const response = await fetch('https://phonbook-i39g.onrender.com/api/contact', {
+        const response = await fetch(contactUrl, {
           method: 'GET',
           headers: {
             Authorization: `${token}`,
@@ -159,7 +161,7 @@ const closeEditForm = async (contactId) => {
       formData.append('phone', newContact.phone);
       formData.append('photo', newContact.photo);
 
-      const response = await fetch('https://phonbook-i39g.onrender.com/api/contact', {
+      const response = await fetch(contactUrl, {
         method: 'POST',
         headers: {
           Authorization: `${token}`,
@@ -243,7 +245,7 @@ const closeEditForm = async (contactId) => {
             formData.append('photo', newContact.photo);
         }
 
-        const response = await fetch(`https://phonbook-i39g.onrender.com/api/contact/${selectedContactId}`, {
+        const response = await fetch(`${contactUrl}/${selectedContactId}`, {
           method: 'PUT',
           headers: {
               Authorization: `${token}`,
@@ -288,7 +290,7 @@ const closeEditForm = async (contactId) => {
         return;
       }
 
-      const response = await fetch(`https://phonbook-i39g.onrender.com/api/contact/${id}`, {
+      const response = await fetch(`${contactUrl}/${id}`, {
         method: 'DELETE',
         headers: {
           Authorization: `${token}`,
